@@ -4,7 +4,7 @@ namespace App\Service;
 
 use Symfony\Component\HttpClient\CurlHttpClient;
 
-class ListService
+class listService
 {
 
     function listPost(){
