@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello authorController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+{% set author = author.data %}
+    <h1>Author {{ author.name }}</h1>
+
+    <p>Username: {{ author.username }}</p>
+    <p>email: {{ author.email }}</p>
+    <p>phone: {{ author.phone }}</p>
+    <p>website: {{ author.website }}</p>
+
+    <h1>Address</h1>
+
+    <p>street: {{ author.address.street }}</p>
+    <p>suite: {{ author.address.suite }}</p>
+    <p>city: {{ author.address.city }}</p>
+    <p>zipcode: {{ author.address.zipcode }}</p>
+    
+    <h1>Company {{ author.company.name }}</h1>
+
+    <p>catchPhrase: {{ author.company.catchPhrase }}</p>
+    <p>bs: {{ author.company.bs }}</p>
+    
+</div>
+{% endblock %}
