@@ -17,6 +17,7 @@
             <td>Title</td>
             <td>Body</td>
             <td>UserId</td>
+            <td>Actions</td>
         </thead>
         <tbody>
 
@@ -30,18 +31,36 @@
 
     <script>
         $(function() {
-            console.log( "ready!" );
+            loadDatatable();
         });
 
         function loadDatatable(){
             $('#table-post').DataTable({
+                drawCallback: loadTriggers,
                 ajax: '{{ path("app_post_list") }}',
                 columns: [
                     { data: 'id' },
                     { data: 'title' },
                     { data: 'body' },
                     { data: 'userId' },
+                    { 
+                        data: null, 
+                        render: function ( data, type, row, meta ) {
+                            var html = '<button type="button" class="btn btn-info showAuthor" data-id="'+data.id+'"><i class="fas fa-eye"></i></button>';
+                            return html;
+                        } 
+                    },
                 ],
+            });
+        }
+
+        function loadTriggers(){
+            $('.showAuthor').click(function(){
+                var url = '{{ path("app_author_detail", {"idAuthor": "toReplace"}) }}';
+                console.log(url);
+                url = url.replace("toReplace", $(this).data('id')); 
+                console.log(url);
+                window.location.href = url;
             });
         }
     </script>
