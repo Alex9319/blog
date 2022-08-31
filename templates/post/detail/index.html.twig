@@ -7,13 +7,13 @@
 {% block title %}Details of post {% if post and data %}{{ post.id }}{% endif %}{% endblock %}
 
 {% block body %}
-    {% if post and data %}
-        <style>
-            .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-            .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-        </style>
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
 
-        <div class="example-wrapper">
+    <div class="example-wrapper">
+        {% if post and data %}
             <h1>{{ post.title }}</h1>
 
             <p>{{ post.body }}</p>
@@ -32,20 +32,14 @@
             <p>city: {{ author.address.city }}</p>
             <p>zipcode: {{ author.address.zipcode }}</p>
             
-        </div>
 
-    {% else %}
-        <style>
-            .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-            .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-        </style>
+        {% else %}
+                <h1>Post no encontrado </h1>   
 
-        <div class="example-wrapper">
-            <h1>Post no encontrado </h1>   
-
-            <p>{{ detailsPost.error }}</p>
-        </div>
-    {% endif %}
+                <p>{{ detailsPost.error }}</p>
+        {% endif %}
+        <a class="btn btn-danger" href="{{ path('app_post_index') }}">Back</a>
+    </div>
 {% endblock %}
 
 

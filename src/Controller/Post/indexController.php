@@ -11,8 +11,6 @@ class indexController extends AbstractController
     #[Route('/', name: 'app_post_index')]
     public function index(): Response
     {
-        return $this->render('post/index/index.html.twig', [
-            
-        ]);
+        return $this->render('post/index/index.html.twig');
     }
 }
