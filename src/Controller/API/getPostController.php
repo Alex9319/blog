@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class getPostController extends AbstractController
 {
-    #[Route('/api/get/post/{idPost}', name: 'app_api_get_post')]
+    #[Route('/api/get/post/{idPost}', name: 'app_api_get_post', methods: "GET")]
     public function index(string $idPost): JsonResponse
     {
         $postService = new getPostService();
