@@ -1,12 +1,17 @@
 <?php
 
-namespace App\Service;
+namespace App\Service\Post;
 
 use Symfony\Component\HttpClient\CurlHttpClient;
 
 class listService
 {
 
+    /**
+     * Function to get post`s list
+     *
+     * @return array
+     */
     function listPost(){
 
         $result = [

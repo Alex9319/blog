@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Service\Author;
+namespace App\Service\Post;
 
+use App\Service\Author\getDetailAuthorService;
 use Symfony\Component\HttpClient\CurlHttpClient;
 
-class getDetailAuthorService
+class getDetailPostService
 {
 
     /**
-     * Function to get author`s details
+     * Function to get all information of a post
      *
-     * @param int $idAuthor
+     * @param int $idPost
      * @return array
      */
-    function getDetails($idAuthor){
+    function getDetailsPost($idPost){
 
         $result = [
             'data'       => null,
@@ -23,11 +24,12 @@ class getDetailAuthorService
 
         $client = new CurlHttpClient();
 
-        $response = $client->request('GET', 'https://jsonplaceholder.typicode.com/users/'.$idAuthor);
+        $response = $client->request('GET', 'https://jsonplaceholder.typicode.com/posts/'.$idPost);
 
         $statusCode = $response->getStatusCode();
         if($statusCode == 200){
             $content = $response->getContent();
+
             $result = [
                 'data'       => json_decode($content),
                 'status'     => true,
