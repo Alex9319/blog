@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Service\Post;
+namespace App\Service\Validate;
 
 use App\Service\Author\getDetailAuthorService;
-use Symfony\Component\Validator\Constraints\EqualTo;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Positive;

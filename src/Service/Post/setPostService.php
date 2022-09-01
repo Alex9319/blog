@@ -2,15 +2,8 @@
 
 namespace App\Service\Post;
 
-use App\Service\Author\getDetailAuthorService;
 use App\Service\Data\dataService;
-use phpDocumentor\Reflection\PseudoTypes\PositiveInteger;
-use Symfony\Component\Validator\Constraints\EqualTo;
-use Symfony\Component\Validator\Constraints\IsNull;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotNull;
-use Symfony\Component\Validator\Constraints\Positive;
-use Symfony\Component\Validator\Validation;
+use App\Service\Validate\validateService;
 
 class setPostService
 {
