@@ -2,7 +2,7 @@
 
 namespace App\Service\Author;
 
-use Symfony\Component\HttpClient\CurlHttpClient;
+use App\Service\Data\dataService;
 
 class getDetailAuthorService
 {
@@ -21,9 +21,8 @@ class getDetailAuthorService
             'statusCode' => 400
         ];
 
-        $client = new CurlHttpClient();
-
-        $response = $client->request('GET', 'https://jsonplaceholder.typicode.com/users/'.$idAuthor);
+        $dataService = new dataService();
+        $response = $dataService->getData('users/'.$idAuthor);
 
         $statusCode = $response->getStatusCode();
         if($statusCode == 200){

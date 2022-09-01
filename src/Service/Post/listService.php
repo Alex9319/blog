@@ -2,7 +2,7 @@
 
 namespace App\Service\Post;
 
-use Symfony\Component\HttpClient\CurlHttpClient;
+use App\Service\Data\dataService;
 
 class listService
 {
@@ -20,9 +20,9 @@ class listService
             'statusCode' => 400
         ];
 
-        $client = new CurlHttpClient();
 
-        $response = $client->request('GET', 'https://jsonplaceholder.typicode.com/posts');
+        $dataService = new dataService();
+        $response = $dataService->getData('posts');
 
         $statusCode = $response->getStatusCode();
         if($statusCode == 200){

@@ -3,6 +3,7 @@
 namespace App\Service\Post;
 
 use App\Service\Author\getDetailAuthorService;
+use App\Service\Data\dataService;
 use Symfony\Component\HttpClient\CurlHttpClient;
 
 class getDetailPostService
@@ -22,9 +23,8 @@ class getDetailPostService
             'statusCode' => 400
         ];
 
-        $client = new CurlHttpClient();
-
-        $response = $client->request('GET', 'https://jsonplaceholder.typicode.com/posts/'.$idPost);
+        $dataService = new dataService();
+        $response = $dataService->getData('posts/'.$idPost);
 
         $statusCode = $response->getStatusCode();
         if($statusCode == 200){
