@@ -12,33 +12,42 @@
         .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
     </style>
 
-    <div class="example-wrapper">
-        {% if post and data %}
-            <h1>{{ post.title }}</h1>
+    <div class="container d-flex flex-column align-items-center mt-5">
+        <div class="col-12 d-flex text-center">
+            {% if post and data %}
+                <div class="col-8">
+                    <div class="card h-100">
+                        <h1 class="card-header bg-success">{{ post.title }}</h1>
+                        <div class="card-body">
+                            <p>{{ post.body }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card h-100">
+                        <h2 class="card-header bg-warning">Author {{ author.name }}</h2>
+                        <div class="card-body">
+                            <p>Username: {{ author.username }}</p>
+                            <p>email: {{ author.email }}</p>
+                            <p>phone: {{ author.phone }}</p>
+                            <p>website: {{ author.website }}</p>
 
-            <p>{{ post.body }}</p>
+                            <h1>Address</h1>
 
-            <h1>Author {{ author.name }}</h1>
+                            <p>street: {{ author.address.street }}</p>
+                            <p>suite: {{ author.address.suite }}</p>
+                            <p>city: {{ author.address.city }}</p>
+                            <p>zipcode: {{ author.address.zipcode }}</p>
+                        </div>
+                    </div>             
+                </div>
+            {% else %}
+                    <h1>Post no encontrado </h1>   
 
-            <p>Username: {{ author.username }}</p>
-            <p>email: {{ author.email }}</p>
-            <p>phone: {{ author.phone }}</p>
-            <p>website: {{ author.website }}</p>
-
-            <h1>Address</h1>
-
-            <p>street: {{ author.address.street }}</p>
-            <p>suite: {{ author.address.suite }}</p>
-            <p>city: {{ author.address.city }}</p>
-            <p>zipcode: {{ author.address.zipcode }}</p>
-            
-
-        {% else %}
-                <h1>Post no encontrado </h1>   
-
-                <p>{{ detailsPost.error }}</p>
-        {% endif %}
-        <a class="btn btn-danger" href="{{ path('app_post_index') }}">Back</a>
+                    <p>{{ detailsPost.error }}</p>
+            {% endif %}
+        </div>
+        <a class="btn btn-danger col-2 mt-5" href="{{ path('app_post_index') }}"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back</a>
     </div>
 {% endblock %}
 

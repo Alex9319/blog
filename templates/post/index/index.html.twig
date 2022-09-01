@@ -8,21 +8,25 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-<div class="example-wrapper">
-    <h1>Listado de Post</h1>
+<div class="container-fluid">
+    <div class="card">
+        <h1 class="card-header">Listado de Post</h1>
+        <div class="card-body">
 
-    <table id="table-post" class="table table-striped">
-        <thead>
-            <td>Identifier</td>
-            <td>Title</td>
-            <td>Body</td>
-            <td>UserId</td>
-            <td>Actions</td>
-        </thead>
-        <tbody>
+            <table id="table-post" class="table table-striped">
+                <thead>
+                    <td>Identifier</td>
+                    <td>Title</td>
+                    <td>Body</td>
+                    <td>UserId</td>
+                    <td>Actions</td>
+                </thead>
+                <tbody>
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
